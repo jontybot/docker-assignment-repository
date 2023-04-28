@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-project-deployment
+  labels: 
+    app: springBootProject
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springBootProject
+  template:
+    metadata:
+      labels:
+        app: springBootProject
+    spec:
+      containers:
+      - name: spring-boot-project
+        image: tusharnagpal/springbootimage
+        ports:
+        - containerPort: 8080
